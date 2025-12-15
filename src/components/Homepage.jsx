@@ -1,12 +1,14 @@
-
-
 import { 
-  Sun, MapPin, Gavel, ArrowRight, Calendar, 
-  Phone, Mail, MapPin as LocationPin, TreePine, Instagram, Facebook, Youtube, 
-  MoveRight
+  Sun, MapPin, Gavel, ArrowRight, Calendar, MoveRight 
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const JungleSafariHome = () => {
+  const navigate = useNavigate();
+
+  const handleViewGallery = () => {
+    navigate('/gallery');
+  };
   return (
     <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 font-sans overflow-x-hidden">
       {/* Hero Section */}
@@ -28,7 +30,10 @@ const JungleSafariHome = () => {
             <button className="flex min-w-[140px] sm:min-w-[160px] cursor-pointer items-center justify-center rounded-full h-11 sm:h-12 px-6 sm:px-8 bg-green-500 hover:bg-green-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/25 text-white text-sm sm:text-base font-bold shadow-lg">
               <span>Explore Safari</span>
             </button>
-            <button className="flex min-w-[140px] sm:min-w-[160px] cursor-pointer items-center justify-center rounded-full h-11 sm:h-12 px-6 sm:px-8 bg-transparent border-2 border-white hover:bg-green-500/10 transition-all duration-300 hover:scale-105 text-white text-sm sm:text-base font-bold shadow-lg backdrop-blur-sm">
+            <button 
+            onClick={handleViewGallery}
+            className="flex min-w-[140px] sm:min-w-[160px] cursor-pointer items-center justify-center rounded-full h-11 sm:h-12 px-6 sm:px-8 bg-transparent border-2 border-white hover:bg-green-500/10 transition-all duration-300 hover:scale-105 text-white text-sm sm:text-base font-bold shadow-lg backdrop-blur-sm">
+            
               <span>View Gallery</span>
             </button>
           </div>
@@ -127,7 +132,10 @@ const JungleSafariHome = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">Captured Moments</h2>
               <p className="text-gray-600 dark:text-gray-400">Glimpses of the wild, caught in the perfect light.</p>
             </div>
-            <button className="flex items-center gap-1 text-sm font-bold text-green-500 dark:text-green-400 border-b-2 border-green-500 pb-1 hover:bg-green-500/10 hover:px-2 hover:rounded-md transition-all duration-300 group">
+            <button 
+              onClick={handleViewGallery}
+              className="flex items-center gap-1 text-sm font-bold text-green-500 dark:text-green-400 border-b-2 border-green-500 pb-1 hover:bg-green-500/10 hover:px-2 hover:rounded-md transition-all duration-300 group cursor-pointer"
+            >
               View More Gallery 
               <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -227,94 +235,6 @@ const JungleSafariHome = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer CTA Strip */}
-      <section className="bg-emerald-900/95 py-12 sm:py-16 px-4 sm:px-6 md:px-10 text-center">
-        <div className="max-w-4xl mx-auto flex flex-col items-center gap-6 sm:gap-8">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white leading-tight">
-            Ready to Answer the Call of the Wild?
-          </h2>
-          <p className="text-gray-300 text-base sm:text-lg max-w-2xl">
-            Permits are limited to ensure minimal disturbance to the wildlife. Plan your adventure early to secure your spot in the heart of nature.
-          </p>
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
-            <button className="flex min-w-[160px] sm:min-w-[180px] cursor-pointer items-center justify-center rounded-full h-12 sm:h-14 px-6 sm:px-8 bg-green-500 hover:bg-green-400 transition-all duration-300 text-white text-base sm:text-lg font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 hover:scale-105">
-              Book Permit Now
-            </button>
-            <button className="flex min-w-[160px] sm:min-w-[180px] cursor-pointer items-center justify-center rounded-full h-12 sm:h-14 px-6 sm:px-8 bg-transparent border border-white/30 hover:bg-green-500/20 transition-all duration-300 text-white text-base sm:text-lg font-bold hover:border-green-500/50">
-              Contact Us
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900/95 border-t border-gray-800 pt-8 sm:pt-12 pb-8 px-4 sm:px-6 md:px-10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-8 sm:mb-12">
-          <div className="col-span-1 flex flex-col gap-4">
-            <div className="flex items-center gap-2 text-white">
-              <TreePine className="w-7 h-7 sm:w-8 sm:h-8 text-green-500" />
-              <h2 className="text-lg sm:text-xl font-bold">Jungle Safari</h2>
-            </div>
-            <p className="text-sm text-gray-400 leading-relaxed">
-              Protecting the wild since 1982. Join us in our mission to conserve nature while experiencing its raw beauty.
-            </p>
-            <div className="flex gap-3 sm:gap-4 mt-2">
-              <a className="text-gray-400 hover:text-green-500 transition-colors duration-300 p-2 hover:bg-green-500/10 rounded-lg" href="#" aria-label="Instagram">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a className="text-gray-400 hover:text-green-500 transition-colors duration-300 p-2 hover:bg-green-500/10 rounded-lg" href="#" aria-label="Facebook">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a className="text-gray-400 hover:text-green-500 transition-colors duration-300 p-2 hover:bg-green-500/10 rounded-lg" href="#" aria-label="Youtube">
-                <Youtube className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-          <div className="sm:col-span-1">
-            <h3 className="text-white font-bold mb-3 sm:mb-4">Quick Links</h3>
-            <ul className="flex flex-col gap-2 text-sm text-gray-400">
-              <li><a className="hover:text-green-500 transition-colors duration-300" href="#">Book Permit</a></li>
-              <li><a className="hover:text-green-500 transition-colors duration-300" href="#">Safari Zones</a></li>
-              <li><a className="hover:text-green-500 transition-colors duration-300" href="#">Timings & Fees</a></li>
-              <li><a className="hover:text-green-500 transition-colors duration-300" href="#">Resort Stay</a></li>
-            </ul>
-          </div>
-          <div className="sm:col-span-1">
-            <h3 className="text-white font-bold mb-3 sm:mb-4">Support</h3>
-            <ul className="flex flex-col gap-2 text-sm text-gray-400">
-              <li><a className="hover:text-green-500 transition-colors duration-300" href="#">Contact Us</a></li>
-              <li><a className="hover:text-green-500 transition-colors duration-300" href="#">FAQs</a></li>
-              <li><a className="hover:text-green-500 transition-colors duration-300" href="#">Rules & Regulations</a></li>
-              <li><a className="hover:text-green-500 transition-colors duration-300" href="#">Cancellation Policy</a></li>
-            </ul>
-          </div>
-          <div className="sm:col-span-1">
-            <h3 className="text-white font-bold mb-3 sm:mb-4">Contact</h3>
-            <ul className="flex flex-col gap-2 sm:gap-3 text-sm text-gray-400">
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-green-500" />
-                +1 (555) 123-4567
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-green-500" />
-                <a href="mailto:info@junglesafari.com">info@junglesafari.com</a>
-              </li>
-              <li className="flex items-start gap-2">
-                <LocationPin className="w-4 h-4 text-green-500 mt-0.5" />
-                <span>National Park Gate 2,<br/>Safari Road, District 4</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto border-t border-gray-800 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-500 text-center sm:text-left">© 2023 Jungle Safari Reserve. All rights reserved.</p>
-          <div className="flex gap-4 sm:gap-6 text-xs text-gray-500">
-            <a className="hover:text-green-500 transition-colors duration-300" href="#">Privacy Policy</a>
-            <a className="hover:text-green-500 transition-colors duration-300" href="#">Terms of Service</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
